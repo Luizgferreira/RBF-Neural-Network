@@ -10,7 +10,7 @@ from models.models import RBFN
 from training.readData import read
 from training.training import randomize
 
-def CV(k=10, eta=0.1, beta=150, num_clusters=50, n_iter=10):
+def CV(k=5, eta=0.08, beta=200, num_clusters=50, n_iter=10):
     features, labels = read(os.path.join(PARENT_PATH, "data", "semeion.txt"))
     data = np.array(list(zip(features,labels)))
     np.random.shuffle(data)
