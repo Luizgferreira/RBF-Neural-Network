@@ -1,6 +1,8 @@
 import os
 import sys
 import numpy as np
+import pandas as pd
+
 PATH = os.path.split(os.path.abspath(__file__))[0]
 PARENT_PATH = os.path.dirname(PATH)
 sys.path.append(PARENT_PATH)
@@ -33,3 +35,10 @@ class RBFN():
         y, h = forward(test, self.weights, self.matrix_centers, self.beta)
         ind = np.where(y==np.amax(y))[0][0]
         return ind
+
+    def readPredict(self, input_file):
+        df = pd.read_csv(filename, sep=' ', delimiter=' ', header=None)
+        df = df.values
+        for line in df:
+            print(predict(line))
+

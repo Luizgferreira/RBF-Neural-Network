@@ -35,9 +35,8 @@ def CV(k=10, eta=0.1, beta=150, num_clusters=50, n_iter=10):
                 erro_fold = erro_fold + 1
         acerto = acerto + acerto_fold
         erro = erro + erro_fold
-        print("Acurácia do fold "+str(i)+": "+str(acerto_fold/(acerto_fold+erro_fold)))
+        #print("Acurácia do fold "+str(i)+": "+str(acerto_fold/(acerto_fold+erro_fold)))
 
-    print("--------")
-    print("Acurácia Total: "+str(acerto/(acerto+erro)))
-CV(eta=0.05, n_iter=30)
-
+    #print("--------")
+    #print("Acurácia Total: "+str(acerto/(acerto+erro)))
+    return(acerto/(acerto+erro))
