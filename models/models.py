@@ -37,8 +37,8 @@ class RBFN():
         return ind
 
     def readPredict(self, input_file):
-        df = pd.read_csv(filename, sep=' ', delimiter=' ', header=None)
+        df = pd.read_csv(input_file, sep=' ', delimiter=' ', header=None)
         df = df.values
         for line in df:
-            print(predict(line))
+            print(self.predict(line[:256]))
 

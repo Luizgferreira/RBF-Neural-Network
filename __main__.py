@@ -12,8 +12,8 @@ PARENT_PATH = os.path.dirname(PATH)
 def get_arguments():
     parser = argparse.ArgumentParser(add_help=False, prog="testarg")
     parser.add_argument('--input', required=False, nargs='?', help='input file')
-    parser.add_argument('--train', required=False, nargs='?', help='train the model')
-    parser.add_argument('--test', required=False, nargs='?', help='test the model using cross-validation')
+    parser.add_argument('--train', required=False, const=True, nargs='?', help='train the model')
+    parser.add_argument('--test', required=False, const=True , nargs='?', help='test the model using cross-validation')
     args = parser.parse_args()
     return args
 
@@ -21,7 +21,8 @@ def get_arguments():
 def run(args):
     if args.input:
         model = RBFN()
-        model.readPredict(args.train)
+        model.loadData()
+        model.readPredict(os.path.join(PATH,args.input))
     elif args.train:
         model = RBFN()
         model.train()
