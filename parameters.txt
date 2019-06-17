@@ -1,5 +1,0 @@
-eta = 0.05
-beta = 50
-n_clusters = 90
-n_iter = 30
-acuracia = 89.58
