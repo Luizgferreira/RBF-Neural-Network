@@ -29,7 +29,6 @@ vsigmoid = np.vectorize(sigmoid)
 def output_centers(matrix_centers, vector_values, beta):
     output = list()
     for line in matrix_centers:
-        #aux = np.exp(-(np.linalg.norm(np.subtract(vector_values,line)))*(np.linalg.norm(np.subtract(vector_values,line)))/beta)
         output.append(np.exp(-(np.linalg.norm(np.subtract(vector_values, line))**2)/beta))
     return(np.array(output))
 
@@ -70,4 +69,5 @@ def train(num_clusters=50, eta=0.1, n_iter=10, beta=150, cross_validation=False,
         np.save(os.path.join(PARENT_PATH,"data","weights"), weights)
         np.save(os.path.join(PARENT_PATH,"data","centers"), matrix_centers)
     return weights, matrix_centers
+
 

@@ -10,7 +10,7 @@ from models.models import RBFN
 from training.readData import read
 from training.training import randomize
 
-def CV(k=5, eta=0.08, beta=200, num_clusters=50, n_iter=10):
+def CV(k=5, eta=0.4, beta=40, num_clusters=40, n_iter=15):
     features, labels = read(os.path.join(PARENT_PATH, "data", "semeion.txt"))
     data = np.array(list(zip(features,labels)))
     np.random.shuffle(data)
@@ -35,8 +35,5 @@ def CV(k=5, eta=0.08, beta=200, num_clusters=50, n_iter=10):
                 erro_fold = erro_fold + 1
         acerto = acerto + acerto_fold
         erro = erro + erro_fold
-        #print("Acurácia do fold "+str(i)+": "+str(acerto_fold/(acerto_fold+erro_fold)))
-
-    #print("--------")
-    #print("Acurácia Total: "+str(acerto/(acerto+erro)))
     return(acerto/(acerto+erro))
+

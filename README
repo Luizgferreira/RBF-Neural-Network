@@ -1,0 +1,16 @@
+Para executar o código é necessário possuir as seguintes bibliotecas instaladas:
+    - numpy
+    - pandas
+    - sklearn
+
+Existem 3 modos de execução:
+    - input: insere um arquivo txt com dados a serem preditos, uma instância por linha. Será printado no terminal os resultados.
+             Em um diretório acima do "RBF-Neural-Network" é preciso executar no terminal:
+                python3 RBF-Neural-Network --input nomedoarquivo.txt
+                * obs: o arquivo deve estar dentro de RBF-Neural-Network
+    - test: realiza cross-validation e printa a acurácia média (5-fold)
+                python3 RBF-Neural-Network --test
+    - train: treina a rede neural. Salva os pesos e coordenadas dos centros em "data"
+                python3 RBF-Neural-Network --train
+
+        

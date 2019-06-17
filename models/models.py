@@ -11,19 +11,20 @@ from training.training import train, forward
 
 class RBFN():
     
-    def __init__(self, beta=150):
+    def __init__(self, beta=40):
         self.beta = beta
     
     def fit(self, X, y):
         self.X = X
         self.y = y
     
-    def train(self, eta=0.1, num_clusters=50, n_iter=5):
+    def train(self, eta=0.4, num_clusters=40, n_iter=15):
         self.eta = eta
         self.num_clusters = num_clusters
         self.n_iter = n_iter
         try:
-            self.weights, self.matrix_centers = train(num_clusters=self.num_clusters, eta=self.eta, n_iter=self.n_iter,beta=self.beta, cross_validation=True, features=self.X,labels=self.y)
+            self.weights, self.matrix_centers = train(num_clusters=self.num_clusters, eta=self.eta, 
+                    n_iter=self.n_iter,beta=self.beta, cross_validation=True, features=self.X,labels=self.y)
         except:
             self.weights, self.matrix_centers = train(num_clusters=self.num_clusters, eta=self.eta, n_iter=self.n_iter,beta=self.beta)
 
